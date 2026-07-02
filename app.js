@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let expirationTime = null;
     let countdownInterval = null;
+    let typewriterTimeout = null;
 
     // 1. QUERY ENTROPY METADATA & INITIALIZE COUNTDOWN
     async function initConduit() {
@@ -267,6 +268,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function typeWriterEffect(element, text) {
+        if (typewriterTimeout) {
+            clearTimeout(typewriterTimeout);
+            typewriterTimeout = null;
+        }
         element.innerHTML = '';
         let index = 0;
         
@@ -282,7 +287,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     element.innerHTML += text.charAt(index);
                 }
                 index++;
-                setTimeout(type, speed);
+                typewriterTimeout = setTimeout(type, speed);
+            } else {
+                typewriterTimeout = null;
             }
         }
         type();
@@ -290,6 +297,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. LOCK TRANSMISSION (SECURE SHIELD)
     function lockConduit() {
+        if (typewriterTimeout) {
+            clearTimeout(typewriterTimeout);
+            typewriterTimeout = null;
+        }
         if (!letterPanel.classList.contains('hidden')) {
             letterPanel.classList.add('hidden');
             authPanel.classList.remove('hidden');
