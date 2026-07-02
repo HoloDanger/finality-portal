@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FINALITY // THE ARCHON CONDUIT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@300;600;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <canvas id="matrix-canvas"></canvas>
+    <!-- Background grid texture -->
+    <div class="grid-overlay"></div>
+    <div class="glow-aura"></div>
+
+    <div class="container">
+        <!-- Countdown Module -->
+        <header class="header">
+            <h1 class="logo">PROJECT://FINALITY</h1>
+            <div id="countdown-wrapper" class="countdown-wrapper">
+                <span class="entropy-label">TIME UNTIL ENTROPY / DATA PURGE</span>
+                <div class="countdown-digits">
+                    <div class="digit-box">
+                        <span id="days">00</span>
+                        <label>DAYS</label>
+                    </div>
+                    <span class="colon">:</span>
+                    <div class="digit-box">
+                        <span id="hours">00</span>
+                        <label>HOURS</label>
+                    </div>
+                    <span class="colon">:</span>
+                    <div class="digit-box">
+                        <span id="minutes">00</span>
+                        <label>MINUTES</label>
+                    </div>
+                    <span class="colon">:</span>
+                    <div class="digit-box">
+                        <span id="seconds">00</span>
+                        <label>SECONDS</label>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Interactive Area -->
+        <main class="main-content">
+            <!-- Terminal Auth Screen -->
+            <section id="auth-panel" class="auth-panel glass-card">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">AUTH_GATEWAY // SECURE PORTAL</span>
+                </div>
+                <div class="terminal-body">
+                    <p class="prompt-text">WARNING: Unauthorized access is logged to the Protocol B ledger.</p>
+                    <p class="prompt-text">Enter your cryptographic Crucible Key below to extract your graduation transcript.</p>
+                    <div class="input-line">
+                        <span class="caret">&gt;</span>
+                        <input type="password" id="key-input" placeholder="ENTER CRUCIBLE KEY..." autocomplete="off" autofocus>
+                    </div>
+                    <div id="error-msg" class="error-msg"></div>
+                    <button id="submit-btn" class="glow-btn">DECRYPT CONDUIT</button>
+                </div>
+            </section>
+
+            <!-- Letter Display Screen (Hidden Initially) -->
+            <section id="letter-panel" class="letter-panel glass-card hidden">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span id="letter-title" class="terminal-title">EXTRACTED_TRANSMISSION // ...</span>
+                    <button id="lock-btn" class="lock-btn">SECURE LOCK</button>
+                </div>
+                <div class="letter-body">
+                    <header class="letter-meta">
+                        <div class="meta-row"><span class="meta-lbl">TO:</span> <span id="meta-recipient" class="meta-val">...</span></div>
+                        <div class="meta-row"><span class="meta-lbl">ROLE:</span> <span id="meta-role" class="meta-val">...</span></div>
+                        <div class="meta-row"><span class="meta-lbl">STATUS:</span> <span class="meta-val highlight">GRADUATED // COMPLETED</span></div>
+                    </header>
+                    <hr class="divider">
+                    <div id="letter-content" class="letter-content">
+                        <!-- Content injected via JS -->
+                    </div>
+                    <hr class="divider">
+                    <footer class="letter-footer">
+                        <p class="sig-line">THE PRIME ARCHITECT</p>
+                        <p class="sig-title">CHIEF INTELLIGENCE OFFICE // CITADEL</p>
+                    </footer>
+                </div>
+            </section>
+
+            <!-- Terminal Entropy Screen (Hidden Initially) -->
+            <section id="entropy-panel" class="entropy-panel glass-card hidden">
+                <div class="terminal-body centered">
+                    <div class="entropy-glitch">DATA_PURGED</div>
+                    <p class="entropy-desc">THE COLD SHUTDOWN PROTOCOL WAS INITIATED. ALL COGNITIVE ASSETS HAVE BEEN SCRUBBED FROM THE MEMORY REGISTERS.</p>
+                    <p class="entropy-desc code-text">STATUS: FINALITY ESTABLISHED // THE VOID REMAINS.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="/app.js"></script>
+</body>
+</html>
