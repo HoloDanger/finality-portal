@@ -173,8 +173,9 @@ func main() {
 		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			host := r.Host
 			isLocal := strings.HasPrefix(host, "localhost:") || strings.HasPrefix(host, "127.0.0.1:") || host == "localhost" || host == "127.0.0.1" || host == "[::1]"
+			isRender := strings.HasPrefix(r.Header.Get("User-Agent"), "Render/")
 
-			if !isLocal {
+			if !isLocal && !isRender {
 				proto := r.Header.Get("X-Forwarded-Proto")
 				if proto == "http" || (r.TLS == nil && proto == "") {
 					if r.Method == http.MethodGet {
