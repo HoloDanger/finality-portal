@@ -198,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. DECRYPT CONDUIT TRANSACTION
     async function attemptDecryption() {
+        if (submitBtn.disabled) return;
         const rawKey = keyInput.value.trim();
         if (!rawKey) {
             triggerShake(authPanel);
